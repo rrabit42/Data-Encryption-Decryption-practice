@@ -33,7 +33,7 @@
 			  else{
 				  echo '
 			  <li class="nav-item">
-				<a class="nav-link" href="form.php">Login</a>
+				<a class="nav-link" href="login.php">Login</a>
 			  </li>';
 			  }
 			  ?>
@@ -102,11 +102,11 @@
 	
 	   	//블룸필터 인덱스 구하는 함수
 	function IndexFunction($val){
-		$Hval = base_convert(hash("sha256", $val),2,16);
+		$Hval = base_convert(hash("sha256", $val),16,10);
 		$array = str_split($Hval);
 		$sum = 0;
 		foreach($array as $x){
-			$sum += bin2hex($x);
+			$sum += $x;
 		}
 		$index = $sum % 512;
 		return $index;

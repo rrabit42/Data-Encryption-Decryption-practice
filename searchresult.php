@@ -159,7 +159,6 @@
 					while($row=mysqli_fetch_array($ret2)){
 						$alibi=$row['ALIBI'];
 						$wantIndex = IndexFunction($text);
-						
 						if(BloomEqual($wantIndex,$alibi)){
 								echo "번호:",$row['NUM'],"<br>이름 : ",$row['NAME'],"<br>알리바이 : ",$row['PR_ALIBI'];
 								$count += 1;
