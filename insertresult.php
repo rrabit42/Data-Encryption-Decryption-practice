@@ -61,8 +61,8 @@
        <tr>
          <th>성별</th>
            <td class="s">
-               <input type="radio" name="suspectSex" checked> 여  
-               <input type="radio" name="suspectSex" value="4"> 남
+               <input type="radio" name="suspectSex" value='4'> 여  
+               <input type="radio" name="suspectSex" value='5'> 남
             </td>
          </tr>
          <tr>
@@ -152,7 +152,7 @@
 	$rand_num=random_int(1,1000);	
 	
 	//성별
-	if($sex==3) $suspect_sex="여";
+	if($sex==4) $suspect_sex="여";
 	else $suspect_sex="남";
 	
 	//혈액형
@@ -165,7 +165,7 @@
 
 	$sql = "
 		INSERT INTO suspectinfo VALUES
-		($suspect_num, HEX(AES_ENCRYPT('$name','suspectisme')),HEX(AES_ENCRYPT('$age','suspectisme')),$value_num,HEX(AES_ENCRYPT('$suspect_sex','suspectisme')), SHA2('$suspect_bt$rand_num',256), '$suspect_al_bloom',HEX(AES_ENCRYPT('$alibi','suspectisme')), '$suspect_f_bloom',HEX(AES_ENCRYPT('$feature','suspectisme')),$rand_num)
+		($suspect_num, HEX(AES_ENCRYPT('$name','suspectisme')),HEX(AES_ENCRYPT($age+$rand_num,'suspectisme')),$value_num,HEX(AES_ENCRYPT('$suspect_sex','suspectisme')), SHA2('$suspect_bt$rand_num',256), '$suspect_al_bloom',HEX(AES_ENCRYPT('$alibi','suspectisme')), '$suspect_f_bloom',HEX(AES_ENCRYPT('$feature','suspectisme')),$rand_num)
 		";
  
  	$ret = mysqli_query($con, $sql);

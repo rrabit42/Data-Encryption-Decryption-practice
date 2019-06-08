@@ -82,11 +82,11 @@
 
    $sql = "
 		INSERT INTO suspectinfo VALUES
-		(1, HEX(AES_ENCRYPT('심정태','suspectisme')),HEX(AES_ENCRYPT('$rand_1'+'45','suspectisme')),$value_1,HEX(AES_ENCRYPT('남','suspectisme')), SHA2('A$rand_1',256), '$sim_al_bloom', HEX(AES_ENCRYPT('$sim_al','suspectisme')), '$sim_f_bloom', HEX(AES_ENCRYPT('$sim_f','suspectisme')),$rand_1),
-		(2, HEX(AES_ENCRYPT('전기수','suspectisme')),HEX(AES_ENCRYPT('$rand_2'+'36','suspectisme')),$value_2,HEX(AES_ENCRYPT('남','suspectisme')), SHA2('A$rand_2',256), '$jeon_al_bloom', HEX(AES_ENCRYPT('$jeon_al','suspectisme')), '$jeon_f_bloom', HEX(AES_ENCRYPT('$jeon_f','suspectisme')),$rand_2),
-		(3, HEX(AES_ENCRYPT('김용성','suspectisme')),HEX(AES_ENCRYPT('$rand_3'+'39','suspectisme')),$value_3,HEX(AES_ENCRYPT('남','suspectisme')), SHA2('B$rand_3',256), '$kim_al_bloom', HEX(AES_ENCRYPT('$kim_al','suspectisme')), '$kim_f_bloom', HEX(AES_ENCRYPT('$kim_f','suspectisme')),$rand_3),
-		(4, HEX(AES_ENCRYPT('정나미','suspectisme')),HEX(AES_ENCRYPT('$rand_4'+'27','suspectisme')),$value_4,HEX(AES_ENCRYPT('여','suspectisme')), SHA2('O$rand_4',256), '$jeong_al_bloom', HEX(AES_ENCRYPT('$jeong_al','suspectisme')), '$jeong_f_bloom', HEX(AES_ENCRYPT('$jeong_f','suspectisme')),$rand_4),
-		(5, HEX(AES_ENCRYPT('채동민','suspectisme')),HEX(AES_ENCRYPT('$rand_5'+'27','suspectisme')),$value_5,HEX(AES_ENCRYPT('남','suspectisme')), SHA2('B$rand_5',256), '$chae_al_bloom', HEX(AES_ENCRYPT('$chae_al','suspectisme')), '$chae_f_bloom', HEX(AES_ENCRYPT('$chae_f','suspectisme')),$rand_5)
+		(1, HEX(AES_ENCRYPT('심정태','suspectisme')),HEX(AES_ENCRYPT(45+$rand_1,'suspectisme')),$value_1,HEX(AES_ENCRYPT('남','suspectisme')), SHA2('A$rand_1',256), '$sim_al_bloom', HEX(AES_ENCRYPT('$sim_al','suspectisme')), '$sim_f_bloom', HEX(AES_ENCRYPT('$sim_f','suspectisme')),$rand_1),
+		(2, HEX(AES_ENCRYPT('전기수','suspectisme')),HEX(AES_ENCRYPT(36+$rand_2,'suspectisme')),$value_2,HEX(AES_ENCRYPT('남','suspectisme')), SHA2('A$rand_2',256), '$jeon_al_bloom', HEX(AES_ENCRYPT('$jeon_al','suspectisme')), '$jeon_f_bloom', HEX(AES_ENCRYPT('$jeon_f','suspectisme')),$rand_2),
+		(3, HEX(AES_ENCRYPT('김용성','suspectisme')),HEX(AES_ENCRYPT(39+$rand_3,'suspectisme')),$value_3,HEX(AES_ENCRYPT('남','suspectisme')), SHA2('B$rand_3',256), '$kim_al_bloom', HEX(AES_ENCRYPT('$kim_al','suspectisme')), '$kim_f_bloom', HEX(AES_ENCRYPT('$kim_f','suspectisme')),$rand_3),
+		(4, HEX(AES_ENCRYPT('정나미','suspectisme')),HEX(AES_ENCRYPT(27+$rand_4,'suspectisme')),$value_4,HEX(AES_ENCRYPT('여','suspectisme')), SHA2('O$rand_4',256), '$jeong_al_bloom', HEX(AES_ENCRYPT('$jeong_al','suspectisme')), '$jeong_f_bloom', HEX(AES_ENCRYPT('$jeong_f','suspectisme')),$rand_4),
+		(5, HEX(AES_ENCRYPT('채동민','suspectisme')),HEX(AES_ENCRYPT(27+$rand_5,'suspectisme')),$value_5,HEX(AES_ENCRYPT('남','suspectisme')), SHA2('B$rand_5',256), '$chae_al_bloom', HEX(AES_ENCRYPT('$chae_al','suspectisme')), '$chae_f_bloom', HEX(AES_ENCRYPT('$chae_f','suspectisme')),$rand_5)
 		";
  
    $ret = mysqli_query($con, $sql);

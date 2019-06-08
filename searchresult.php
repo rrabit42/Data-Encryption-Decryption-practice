@@ -92,7 +92,7 @@
 		//이름 검색
 		if($select == "name") {
 			$sql="SELECT AES_DECRYPT(UNHEX(NAME),'suspectisme') as NAME,
-			AES_DECRYPT(UNHEX(AGE),'suspectisme') as AGE,
+			AES_DECRYPT(UNHEX(AGE),'suspectisme')-SALT as AGE,
 			HEIGHT as HEIGHT,
 			AES_DECRYPT(UNHEX(SEX),'suspectisme') as SEX,
 			BLOOD_TYPE as BLOOD_TYPE,
@@ -128,7 +128,6 @@
 			else "알수 없음";
 		}
 		
-		//어처피 sql만 다르고 나머지는 같으니까 이렇게 간추렸어!
 		$ret2=mysqli_query($con,$sql);
 			if($ret2) {
 				if($select == "name"){
@@ -143,13 +142,14 @@
 								$blood = $array_bloodtype[$i];
 							}
 						}
-							echo "이름 : ",$row['NAME'],"<br>나이 : ",$row['AGE'],"<br>신장 : ",bucket_result($row['HEIGHT']),
+							$age=substr($row['AGE'],0,2);
+							echo "이름 : ",$row['NAME'],"<br>나이 : ",$age,"<br>신장 : ",bucket_result($row['HEIGHT']),
 							"<br>성별 : ",$row['SEX'],"<br>혈액형 : ",$blood,"<br>알리바이 : ",$row['PR_ALIBI'],
 							"<br>특징 : ",$row['PR_FEATURE'];
 							$count+=1;
 					}
 					if($count == 0){
-						echo "입력하신 알리바이를 가진 용의자가 없습니다.";
+						echo "입력하신 이름을 가진 용의자가 없습니다.";
 					}
 				}
 				
@@ -161,7 +161,7 @@
 						$wantIndex = IndexFunction($text);
 						
 						if(BloomEqual($wantIndex,$alibi)){
-								echo "번호:",row['NUM'],"이름 : ",$row['NAME'],"<br>알리바이 : ",$row['PR_ALIBI'];
+								echo "번호:",$row['NUM'],"<br>이름 : ",$row['NAME'],"<br>알리바이 : ",$row['PR_ALIBI'];
 								$count += 1;
 						}
 					}
@@ -182,7 +182,7 @@
 							}
 					}
 					if($count == 0){
-						echo "입력하신 알리바이를 가진 용의자가 없습니다.";
+						echo "입력하신 특징을 가진 용의자가 없습니다.";
 					}
 				}
 				

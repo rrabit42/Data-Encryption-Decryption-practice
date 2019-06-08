@@ -53,7 +53,7 @@
 		</tr>
 		<tr>
          <th> 나이</th>
-         <td><input type="text" name="suspectAge"></td>
+         <td><input type="number" name="suspectAge"></td>
 		</tr>
 		<tr>
          <th> 신장</th>
@@ -62,8 +62,9 @@
 		<tr>
          <th>성별</th>
 			<td class="s">
-               <input type="radio" name="suspectSex" value="xx"> 여  
-               <input type="radio" name="suspectSex" value="xy"> 남
+               <input type="radio" name="suspectSex" value='4'> 여 
+               <input type="radio" name="suspectSex" value='5'> 남
+			   
 			</td>
          </tr>
          <tr>
@@ -86,7 +87,7 @@
 	   <tr height="2" bgcolor="#006633"><td colspan="2"></td></tr>
 	   <tr>
 		 <td colspan="2" align="center">
-		   <input type="submit" value="용의자 추가">
+		   <input type="submit" value="추가">
 		   <input type="reset" value="취소">
 		</td>
 	   </tr>
