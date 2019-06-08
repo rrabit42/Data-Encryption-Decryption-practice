@@ -53,7 +53,7 @@
     <!-- Login Form -->
     <form name="form" method="POST" action="">
       <input type="text" id="login" class="fadeIn second" name="userid" placeholder="id">
-      <input type="text" id="password" class="fadeIn third" name="userpw" placeholder="password">
+      <input type="password" id="password" class="fadeIn third" name="userpw" placeholder="password">
       <input type="submit" class="fadeIn fourth" value="Log In">
     </form>
 
@@ -219,6 +219,27 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
 }
 
 input[type=text] {
+  background-color: #f6f6f6;
+  border: none;
+  color: #0d0d0d;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px;
+  width: 85%;
+  border: 2px solid #f6f6f6;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+
+input[type=password] {
   background-color: #f6f6f6;
   border: none;
   color: #0d0d0d;
